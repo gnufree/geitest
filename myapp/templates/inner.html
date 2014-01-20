@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Inner{% endblock %}
+{% block head %}
+	{{ super() }}
+	<style type="text/css">
+	.important {color: #336699; }
+	</style>
+{% endblock%}
+{% block content %}
+	<div id="inner_info">
+		<form action="" method="post">
+			<label for="email">Email:</label>
+			<input type="text" name="email" id="email" />
+			<input type="submit" value="注册">
+		</form>
+	</div>
+	<div id="message_info">
+	{% with messages = get_flashed_messages() %}
+  		{% if messages %}
+   		<ul class=flashes>
+    		{% for message in messages %}
+      			<li>{{ message }}</li>
+    		{% endfor %}
+    	</ul>
+  		{% endif %}
+	{% endwith %}
+	</div>
+{% endblock %}
